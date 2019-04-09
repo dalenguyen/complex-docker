@@ -10,6 +10,8 @@ This is an simple React app that use Nginx for routing, and Express server for h
 
 ## For Development
 
+![Dev Diagram](/images/dev.png)
+
 Build local images and containers. Obmit --build for the next run.
 
 Docker-compose will build from Dockerfile.dev files.
@@ -27,6 +29,8 @@ docker-compose down
 ```
 
 ## For Production
+
+![Prod Diagram](/images/prod.png)
 
 In this case, Javis CI/CD will create test images, run test and create prod images. The prod images will be pushed to Docker Hub or Private Registry. Travis will will push the project to AWS or other servers.
 
