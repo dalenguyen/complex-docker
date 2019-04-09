@@ -10,7 +10,7 @@ This is an simple React app that use Nginx for routing, and Express server for h
 
 ## For Development
 
-![Dev Diagram](/images/dev.png)
+![Dev Diagram](https://raw.githubusercontent.com/dalenguyen/complex-docker/master/images/dev.png)
 
 Build local images and containers. Obmit --build for the next run.
 
@@ -30,11 +30,13 @@ docker-compose down
 
 ## For Production
 
-![Prod Diagram](/images/prod.png)
+![Prod Diagram](https://raw.githubusercontent.com/dalenguyen/complex-docker/master/images/prod.png)
 
 In this case, Javis CI/CD will create test images, run test and create prod images. The prod images will be pushed to Docker Hub or Private Registry. Travis will will push the project to AWS or other servers.
 
 The AWS will pull images and start deploying.
+
+For the Database Services, we better use outside services because they're secured, easy to scale and other awesome features like auto backup and rollback.
 
 ## Reference
 
