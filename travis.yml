@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker builld -t dalenguyen/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run dalenguyen/react-test yarn test -- --coverage
+
+after_success:
+  - docker build -t dalenguyen/multi-client ./client
+  - docker build -t dalenguyen/multi-nginx ./nginx
+  - docker build -t dalenguyen/multi-server ./server
+  - docker build -t dalenguyen/multi-worker ./worker
+  # Log in to the docker CLI (Add username and password to Travis variables)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push dalenguyen/multi-client
+  - docker push dalenguyen/multi-nginx
+  - docker push dalenguyen/multi-server
+  - docker push dalenguyen/multi-worker
