@@ -1,5 +1,7 @@
 # Complex Docker with Multi Containers Setup
 
+[![Build Status](https://travis-ci.org/dalenguyen/complex-docker.svg?branch=master)](https://travis-ci.org/dalenguyen/complex-docker)
+
 Setting multi containers from develoment to production.
 
 ## Getting Started
